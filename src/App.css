@@ -704,3 +704,18 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root, .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Use 100% of the viewport height */
+}
+
+footer {
+  margin-top: 100px; /* Automatically adjust margin to push the footer down */
+}

@@ -1,56 +1,15 @@
-/* Styling for the achievements section */
-.achievements {
-    background: white; /* Beautiful gradient background */
-    padding: 50px 0; /* Padding around the section */
-    color: #333; /* Dark grey text for better readability */
-    border-radius: 8px; /* Smooth rounded corners */
-  }
-  
-  .achievements h2 {
-    font-size: 2.5rem; /* Large font size for headings */
-    text-align: center; /* Center-align the heading */
-    margin-bottom: 30px; /* Space between heading and carousel */
-    color: #ffffff; /* White color for contrast */
-    font-weight: bold; /* Makes the text bold */
-  }
-  
-  .achievements-bx {
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.9); /* Slightly transparent white for the content box */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-    border-radius: 10px; /* Rounded corners */
-  }
-  
-  .achievements-slider .item {
-    padding: 20px;
-    text-align: center; /* Center-align text in the carousel */
-    font-size: 1.2rem; /* Reasonable font size for readability */
-    font-style: italic; /* Italic style for a unique touch */
-    color: #555; /* Slightly lighter text color */
-  }
-  
-  .achievement-text {
-    display: flex; /* Flexbox for alignment */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-  }
-  
-  .achievement-icon {
-    font-size: 24px; /* Larger font size for the emoji */
-    margin-right: 10px; /* Space between the emoji and text */
-  }
-  
-  .achievement-image {
-    width: 100px;  /* Adjust width as needed */
-    height: auto;  /* Maintain aspect ratio */
-    margin-right: 20px; /* Space between image and text */
-  }
-  
-  .item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    padding: 10px; /* Add padding for visibility */
-  }
-  
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root, .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Use 100% of the viewport height */
+}
+
+.footer {
+  margin-top: 200px; /* Adjust the value as needed */
+}

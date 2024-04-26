@@ -1,4 +1,5 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+import { ProjectCard } from "./ProjectCard";
 import projImg1 from "../assets/img/1.png";
 import projImg2 from "../assets/img/2.png";
 import projImg3 from "../assets/img/3.png";
@@ -6,11 +7,9 @@ import p4 from "../assets/img/4.png";
 import p5 from "../assets/img/5.png";
 import p6 from "../assets/img/6.png";
 import p7 from "../assets/img/7.png";
- // Assuming you have an image for the Blockchain project
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import './project.css';
 
 export const Projects = () => {
   const projects = [
@@ -39,7 +38,7 @@ export const Projects = () => {
       title: "OpenAI - CLI Tool via Go",
       description: "A command-line interface (CLI) application in Go that interacts with the OpenAI API to generate responses.",
       imgUrl: p4,
-      repoUrl: "https://github.com/Divyanshu11011/OpenAI-CLI-GO",  // Update with correct repo URL if available
+      repoUrl: "https://github.com/Divyanshu11011/OpenAI-CLI-GO"
     },
     {
       title: "Code Pen Clone",
@@ -51,7 +50,6 @@ export const Projects = () => {
       title: "AI-AVATAR-INTERVIEWER",
       description: "AI-driven interviewing platform with real-time feedback.",
       imgUrl: p6,
-     
       repoUrl: "https://github.com/Divyanshu11011/Profilify-latest"
     },
     {
@@ -62,50 +60,62 @@ export const Projects = () => {
     }
   ];
 
-  const totalProjects = projects.length;
-  const lastRowItemCount = totalProjects % 3; // Assuming 3 items per row normally
-
   return (
     <section className="project" id="projects">
       <Container>
         <Row>
-          <Col>
+          <Col size={12}>
             <TrackVisibility>
               {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <h2 style={{ color: "#FFF", textAlign: "center" }}>Key Projects</h2>
-                  <p>Explore my projects, live and direct or check out my GitHub repositories.</p>
-                  <Row>
-                    {projects.map((project, index) => {
-                      const isLastItem = index === totalProjects - 1; // Check if last project
-                      let colSize = "4"; // Default to 4 columns per item
-                      let offset = "";
-                      if (isLastItem && lastRowItemCount === 1) {
-                        // If last item is alone in the last row, center it
-                        offset = "offset-md-4";
-                      }
-                      return (
-                        <Col md={colSize} key={index} className={`${offset} mb-4`}>
-                          <div className="project-card">
-                            <img src={project.imgUrl} alt="Project" className="project-image" />
-                            <h5 style={{ color: "#000" }}>{project.title}</h5>
-                            <div className="project-description">
-                              <p>{project.description}</p>
-                            </div>
-                            <div className="project-links">
-                              {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                                Live Demo <span role="img" aria-label="live-demo-emoji">🚀</span>
-                              </a>}
-                              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                                View Code <span role="img" aria-label="view-code-emoji">👀</span>
-                              </a>
-                            </div>
-                          </div>
-                        </Col>
-                      );
-                    })}
-                  </Row>
-                </div>}
+              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
+                <h2>Projects</h2>
+                <p>Explore my key projects live and direct, or check out the GitHub repositories.</p>
+                <Tab.Container id="projects-tabs" defaultActiveKey="first">
+                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
+                    <Nav.Item>
+                      <Nav.Link eventKey="first">Tab 1</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="second">Tab 2</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="third">Tab 3</Nav.Link>
+                    </Nav.Item>
+                  </Nav>
+                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
+                    <Tab.Pane eventKey="first">
+                      <Row>
+                        {projects.slice(0, 3).map((project, index) => (
+                          <ProjectCard
+                            key={index}
+                            {...project}
+                          />
+                        ))}
+                      </Row>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="second">
+                      <Row>
+                        {projects.slice(3, 6).map((project, index) => (
+                          <ProjectCard
+                            key={index}
+                            {...project}
+                          />
+                        ))}
+                      </Row>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="third">
+                      <Row>
+                        {projects.slice(6).map((project, index) => (
+                          <ProjectCard
+                            key={index}
+                            {...project}
+                          />
+                        ))}
+                      </Row>
+                    </Tab.Pane>
+                  </Tab.Content>
+                </Tab.Container>
+              </div>}
             </TrackVisibility>
           </Col>
         </Row>
@@ -113,4 +123,4 @@ export const Projects = () => {
       <img className="background-image-right" src={colorSharp2} alt="Decorative Background"></img>
     </section>
   );
-}
+};

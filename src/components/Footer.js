@@ -6,10 +6,10 @@ import navIcon3 from "../assets/img/nav-icon3.svg";
 
 export const Footer = () => {
   return (
-    <footer className="footer">
+    <footer>
       <Container>
         <Row className="align-items-center">
-          <Col size={12} sm={6}>
+          <Col size={20} sm={6}>
             <p>Explore more About Me ↗️ Connect</p>
           </Col>
           <Col size={12} sm={6} className="text-center text-sm-end">

@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from "./components/NavBar";
@@ -18,7 +18,6 @@ function App() {
     "Best Presenter Award at YAMAHA NATIONAL AI HACKATHON, 2023",
     "Finalist at TIE-U GPC 2023-2024",
     "15+ Published Technical Articles on GeeksForGeeks"
-  
   ];
 
   return (
@@ -26,13 +25,7 @@ function App() {
       <NavBar />
       <Banner />
       <Achievements achievements={hackathonWinnings} />
-      <br>
-      </br>
-      <br></br>
-      <br></br>
       <Skills />
-      <br></br>
-      <br></br>
       <Projects />
       <Footer />
     </div>
